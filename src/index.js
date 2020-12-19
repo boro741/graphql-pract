@@ -46,18 +46,22 @@ const resolvers = {
                 }else{
                     requestedParam = "course";
                 }
-                var res = [];
+                // var res = [];
 
-                for(let i = 0; i < studentData.length; i++){
-                    let currentStudentParam = (studentData[i])[requestedParam].toUpperCase().valueOf();
-                    let requestedStudentParam = args[requestedParam].toUpperCase().valueOf();
+                // for(let i = 0; i < studentData.length; i++){
+                //     let currentStudentParam = (studentData[i])[requestedParam].toUpperCase().valueOf();
+                //     let requestedStudentParam = args[requestedParam].toUpperCase().valueOf();
                   
-                    if(currentStudentParam === requestedStudentParam){
-                        res.push(studentData[i]);
-                    }
-                }
+                //     if(currentStudentParam === requestedStudentParam){
+                //         res.push(studentData[i]);
+                //     }
+                // }
 
-                return res;
+                return studentData.filter((student)=>{
+                    return student[requestedParam].toUpperCase().valueOf() === args[requestedParam].toUpperCase().valueOf();
+                });
+
+                // return res;
               }
             return studentData;
         },
